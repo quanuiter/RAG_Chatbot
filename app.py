@@ -55,19 +55,30 @@ def process_documents(uploaded_files):
 
 # 🌟 PHASE 5 UPDATE: Hàm sinh câu hỏi gợi ý tự động
 def generate_suggested_questions(chunks):
-    # Lấy khoảng 2000 ký tự đầu tiên để làm ngữ cảnh sinh câu hỏi
-    sample_text = " ".join([c.page_content for c in chunks[:3]])[:2000]
+    # 1. Trộn data: Lấy 2 đoạn ở đầu và 3 đoạn ở giữa tài liệu để có cái nhìn bao quát hơn
+    # (Tránh việc chỉ đọc mỗi trang bìa/mục lục)
+    mid_index = len(chunks) // 2
+    sample_chunks = chunks[:2] + chunks[mid_index : mid_index + 3]
+    
+    # Ép thành chuỗi text, giới hạn 2500 ký tự để không quá tải
+    sample_text = " ".join([c.page_content for c in sample_chunks])[:2500] 
+    
+    # 2. SỬA LẠI TÊN MODEL chuẩn của Google
     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.7)
     
-    prompt = f"""Dựa vào nội dung sau, hãy gợi ý đúng 3 câu hỏi ngắn gọn (dưới 15 chữ) bằng tiếng Việt mà người dùng có thể hỏi để tìm hiểu về tài liệu này. 
-    Chỉ trả về 3 câu hỏi, mỗi câu bắt đầu bằng dấu gạch ngang (-).
-    Nội dung: {sample_text}"""
+    prompt = f"""Dựa vào nội dung sau đây được trích xuất từ một tài liệu, hãy gợi ý đúng 3 câu hỏi ngắn gọn (dưới 15 chữ) bằng tiếng Việt mà người dùng có thể hỏi để tìm hiểu sâu hơn về tài liệu này. 
+    Chỉ trả về 3 câu hỏi, mỗi câu bắt đầu bằng dấu gạch ngang (-). Tuyệt đối không giải thích thêm.
+    
+    Nội dung tài liệu: 
+    {sample_text}"""
     
     try:
         response = llm.invoke(prompt)
         return response.content
-    except Exception:
-        return "- Nội dung chính của tài liệu là gì?\n- Có quy định nào đáng chú ý không?\n- Tóm tắt lại tài liệu này."
+    except Exception as e:
+        # 3. In lỗi ra terminal để bạn biết đường mà sửa nếu API có vấn đề
+        print(f"❌ Lỗi khi sinh câu hỏi gợi ý: {e}") 
+        return "- Nội dung chính của tài liệu là gì?\n- Có điểm nào quan trọng cần lưu ý?\n- Tóm tắt lại tài liệu này."
 
 def build_qa_chain(vector_store):
     retriever = vector_store.as_retriever(search_kwargs={"k": 3})
