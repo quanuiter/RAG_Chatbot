@@ -56,7 +56,6 @@ def process_documents(uploaded_files):
 # 🌟 PHASE 5 UPDATE: Hàm sinh câu hỏi gợi ý tự động
 def generate_suggested_questions(chunks):
     # 1. Trộn data: Lấy 2 đoạn ở đầu và 3 đoạn ở giữa tài liệu để có cái nhìn bao quát hơn
-    # (Tránh việc chỉ đọc mỗi trang bìa/mục lục)
     mid_index = len(chunks) // 2
     sample_chunks = chunks[:2] + chunks[mid_index : mid_index + 3]
     
@@ -64,7 +63,7 @@ def generate_suggested_questions(chunks):
     sample_text = " ".join([c.page_content for c in sample_chunks])[:2500] 
     
     # 2. SỬA LẠI TÊN MODEL chuẩn của Google
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.7)
+    llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite", temperature=0.7)
     
     prompt = f"""Dựa vào nội dung sau đây được trích xuất từ một tài liệu, hãy gợi ý đúng 3 câu hỏi ngắn gọn (dưới 15 chữ) bằng tiếng Việt mà người dùng có thể hỏi để tìm hiểu sâu hơn về tài liệu này. 
     Chỉ trả về 3 câu hỏi, mỗi câu bắt đầu bằng dấu gạch ngang (-). Tuyệt đối không giải thích thêm.
