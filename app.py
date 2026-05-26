@@ -139,7 +139,20 @@ with st.sidebar:
 
 # 🌟 PHASE 5 UPDATE: Hiển thị câu hỏi gợi ý
 if st.session_state.qa_chain and st.session_state.suggestions and len(st.session_state.messages) == 0:
-    st.info("💡 **Gợi ý câu hỏi cho bạn:**\n" + st.session_state.suggestions)
+    raw_suggestions = st.session_state.suggestions
+    display_text = ""
+    
+    # Kỹ thuật bóc tách phần lõi văn bản
+    if isinstance(raw_suggestions, str):
+        display_text = raw_suggestions
+    elif isinstance(raw_suggestions, list):
+        for item in raw_suggestions:
+            if isinstance(item, dict) and "text" in item:
+                display_text += item["text"] + "\n"
+            else:
+                display_text += str(item) + "\n"
+                
+    st.info("💡 **Gợi ý câu hỏi cho bạn:**\n" + display_text)
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
