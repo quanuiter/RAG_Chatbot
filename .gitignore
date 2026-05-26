@@ -1,0 +1,11 @@
+# Bỏ qua môi trường ảo và bộ nhớ đệm
+venv/
+__pycache__/
+
+# Bỏ qua file chứa API Key (TỐI QUAN TRỌNG)
+.env
+
+# Bỏ qua data tạm và vector database
+faiss_index/
+temp/
+.DS_Store
