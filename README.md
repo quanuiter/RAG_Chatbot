@@ -1,4 +1,4 @@
-# Tối ưu hóa LLM cho Hệ thống Hỏi-Đáp Tài liệu Doanh nghiệp (RAG Chatbot)
+# Hệ thống Hỏi-Đáp Tài liệu Doanh nghiệp (RAG Chatbot)
 
 [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white)](https://pytorch.org/)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
