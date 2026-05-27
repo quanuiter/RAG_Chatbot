@@ -111,7 +111,7 @@ streamlit run app.py
 
 Dự án được tối ưu hóa để triển khai dạng serverless trên **Streamlit Community Cloud**. `GOOGLE_API_KEY` và các thông tin bí mật khác được quản lý an toàn qua tính năng **Advanced Settings > Secrets** của nền tảng, đảm bảo không có thông tin nhạy cảm nào được đẩy lên repository.
 
-Live Demo: *[Đường link Streamlit Cloud]*
+Live Demo: ragmybot.streamlit.app/
 
 ---
 
