@@ -40,7 +40,7 @@ def process_documents(uploaded_files):
         
         loader = PyPDFLoader(file_path)
         documents = loader.load()
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=300)
         chunks = text_splitter.split_documents(documents)
         all_chunks.extend(chunks)
         

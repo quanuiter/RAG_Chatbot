@@ -1,4 +1,5 @@
 import os
+import sys
 from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -7,16 +8,22 @@ from langchain_classic.chains import ConversationalRetrievalChain
 from langchain_classic.memory import ConversationBufferMemory
 from langchain_core.prompts import PromptTemplate
 
+# Đảm bảo stdout ghi dưới dạng utf-8 trên Windows
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except AttributeError:
+    pass
+
 # 1. Load API Key từ file .env
 load_dotenv()
 
 # 2. Khởi tạo lại Embedding Model (Phải GIỐNG HỆT model đã dùng ở Phase 2)
 # Nếu ở Phase 2 dùng Gemini, hãy thay bằng GoogleGenerativeAIEmbeddings(...)
-print("Đang load mô hình Embeddings...")
+print("[INFO] Dang load mo hinh Embeddings...")
 embeddings = HuggingFaceEmbeddings(model_name="paraphrase-multilingual-MiniLM-L12-v2")
 
 # Load FAISS index từ ổ cứng
-print("Đang load FAISS Vector Database...")
+print("[INFO] Dang load FAISS Vector Database...")
 vector_store = FAISS.load_local(
     "faiss_index", 
     embeddings, 
@@ -71,13 +78,18 @@ qa_chain = ConversationalRetrievalChain.from_llm(
 # 7. Hàm chạy giao diện dòng lệnh (CLI)
 def chat_cli():
     print("\n" + "="*50)
-    print("Bot: RAG Chatbot đã sẵn sàng! (Gõ 'exit' hoặc 'quit' để thoát)")
+    print("[INFO] Bot: RAG Chatbot da san sang! (Go 'exit' hoac 'quit' de thoat)")
     print("="*50 + "\n")
     
     while True:
-        query = input("🧑 Bạn: ")
+        try:
+            query = input("Ban: ")
+        except UnicodeDecodeError:
+            # Phòng trường hợp đầu vào bàn phím bị lỗi mã hóa
+            query = ""
+            
         if query.lower() in ['exit', 'quit']:
-            print("Bot: Tạm biệt nhé!")
+            print("Bot: Tam biet nhe!")
             break
             
         if not query.strip():
@@ -88,12 +100,14 @@ def chat_cli():
             result = qa_chain.invoke({"question": query})
             print(f"Bot: {result['answer']}")
             
-            print("\n[Nguồn trích xuất]:")
+            print("\n[Nguon trich xuat]:")
             for i, doc in enumerate(result['source_documents']):
-                print(f"  - Chunk {i+1}: {doc.page_content[:100]}...")
+                # In ra an toàn
+                content_preview = doc.page_content[:100].replace('\n', ' ')
+                print(f"  - Chunk {i+1}: {content_preview}...")
                 
         except Exception as e:
-            print(f"❌ Lỗi: {e}")
+            print(f"[ERROR] Loi: {e}")
             
         print("-" * 50)
 

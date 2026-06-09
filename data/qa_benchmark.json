@@ -1,0 +1,80 @@
+[
+    {
+        "page_index": 15,
+        "question": "Tại sao nhân vật 'tôi' lại so sánh việc viết về Naoko khi còn trẻ với một tấm bản đồ?",
+        "ground_truth_context": "Mọi thứ còn quá sắc nét và rõ ràng, đến nỗi tôi không biết phải bắt đầu từ đâu - kiểu như một tấm bản đồ có quá nhiều chỉ dẫn đôi khi lại thành vô dụng.",
+        "answer": "Vì mọi thứ lúc đó còn quá sắc nét và rõ ràng, khiến nhân vật không biết phải bắt đầu từ đâu, tương tự như một tấm bản đồ có quá nhiều chỉ dẫn sẽ trở nên vô dụng."
+    },
+    {
+        "page_index": 39,
+        "question": "Nhân vật 'tôi' đã kể cho Naoko nghe về cô gái mà mình từng quen ở đâu?",
+        "ground_truth_context": "Tôi kể cho nàng nghe về cô gái tôi đã bỏ lại ở Kobe.",
+        "answer": "Nhân vật 'tôi' đã kể cho Naoko nghe về cô gái mà mình đã bỏ lại ở Kobe."
+    },
+    {
+        "page_index": 63,
+        "question": "Sau khi con đom đóm biến mất, nhân vật tôi cảm thấy như thế nào về vệt sáng của nó?",
+        "ground_truth_context": "Rất lâu sau khi con đom đóm đã biến mất, vệt sáng của nó vẫn còn lại trong tôi, lập lòe nhợt nhạt trong bóng tối dày đặc sau hai mí mắt như một linh hồn lạc lối.",
+        "answer": "Vệt sáng của con đom đóm vẫn còn lập lòe nhợt nhạt trong bóng tối sau hai mí mắt của nhân vật tôi như một linh hồn lạc lối."
+    },
+    {
+        "page_index": 87,
+        "question": "Nhân vật Watanabe đã mua loại hoa gì trên đường đến nhà Midori?",
+        "ground_truth_context": "Có một tiệm bán hoa mở cửa, và tôi vào mua mấy bông thuỷ tiên. Mùa thu mà có thuỷ tiên! Thật lạ? Nhưng tôi vẫn thích thứ hoa này.",
+        "answer": "Watanabe đã mua mấy bông hoa thuỷ tiên."
+    },
+    {
+        "page_index": 111,
+        "question": "Tại sao cô gái lớn lại quyết định ở lại qua đêm thay vì về Nagano như dự định ban đầu?",
+        "ground_truth_context": "Cô lớn nhẽ ra đã phải về vùng núi Nagano từ đêm trước để dự đám cưới anh trai, nhưng đã quyết định ở lại qua đêm với người bạn đang đau khổ",
+        "answer": "Cô ở lại để an ủi và đồng hành cùng người bạn đang đau khổ vì chuyện tình cảm."
+    },
+    {
+        "page_index": 135,
+        "question": "Reiko và Naoko thường làm gì để giết thời gian trong suốt mùa đông dài và khắc nghiệt?",
+        "ground_truth_context": "Suốt mùa đông chúng tôi chỉ xúc tuyết. Hầu hết là chỉ ở trong nhà cho ấm, nghe nhạc, tán chuyện hoặc đan lát.",
+        "answer": "Họ thường ở trong nhà cho ấm, nghe nhạc, tán chuyện hoặc đan lát."
+    },
+    {
+        "page_index": 183,
+        "question": "Tại sao cô gái không ngủ lại ở khu trại vào ban đêm?",
+        "ground_truth_context": "Không bao giờ!\" cô cười. \"Ban đêm ở đây thì buồn chết mất. Mấy anh chăn nuôi cho tôi đi xe về phố và sáng thì tôi lại vào.\"",
+        "answer": "Vì cô cảm thấy ban đêm ở đó rất buồn và cô được mấy anh chăn nuôi cho đi xe về phố."
+    },
+    {
+        "page_index": 231,
+        "question": "Vì sao nhân vật 'tôi' không bao giờ nghĩ đến cô gái đang trò chuyện cùng mình trong lúc thủ dâm?",
+        "ground_truth_context": "Thế này nhé, trước hết là tớ coi cậu là bạn, nên không muốn lôi kéo cậu vào những mộng tưởng tình dục của tớ",
+        "answer": "Vì nhân vật 'tôi' coi cô gái đó là bạn và không muốn lôi kéo cô vào những mộng tưởng tình dục của mình."
+    },
+    {
+        "page_index": 255,
+        "question": "Midori đã làm gì khi ở ngoài công viên theo lời khuyên của Watanabe?",
+        "ground_truth_context": "Tớ theo lời cậu, không nói chuyện với ai, chỉ để đầu óc trống rỗng đi thôi.",
+        "answer": "Cô ấy không nói chuyện với ai và chỉ để đầu óc trống rỗng."
+    },
+    {
+        "page_index": 279,
+        "question": "Hatsumi đã yêu cầu ai đưa cô ấy về nhà thay vì Nagasawa?",
+        "ground_truth_context": "Tôi muốn Toru đưa tôi về nhà.",
+        "answer": "Hatsumi yêu cầu Toru (Watanabe) đưa cô ấy về nhà."
+    },
+    {
+        "page_index": 303,
+        "question": "Sau khi nhảy ở sàn disco, Midori và người kể chuyện đã đi ăn món gì và uống gì?",
+        "ground_truth_context": "Tôi đưa cô đến một quán pizza quen biết và gọi bia hơi với một cái pizza cá trích.",
+        "answer": "Họ đi ăn pizza cá trích và uống bia hơi."
+    },
+    {
+        "page_index": 327,
+        "question": "Trong bóng tối mùa xuân, nhân vật chính liên tưởng hình ảnh hoa anh đào đang nở với điều gì?",
+        "ground_truth_context": "Trong bóng tối mùa xuân, trông chúng giống như thịt vừa bục ra khỏi da trên những vết thương đang mưng mủ.",
+        "answer": "Nhân vật chính liên tưởng hoa anh đào đang nở giống như thịt vừa bục ra khỏi da trên những vết thương đang mưng mủ."
+    },
+    {
+        "page_index": 351,
+        "question": "Nhân vật Watanabe đã ví von mức độ yêu Midori như thế nào?",
+        "ground_truth_context": "\"Cậu yêu tớ đến mức nào?\" Midori hỏi.\n\"Đủ để toàn bộ hổ báo trên thế giới phải chảy ra thành bơ hết,\" tôi nói.",
+        "answer": "Watanabe nói rằng anh yêu cô đủ để toàn bộ hổ báo trên thế giới phải chảy ra thành bơ hết."
+    }
+]
